@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Fotos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4B0082;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .back-button {
+            background-color: #6a0dad;
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        #photosContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        #photosContainer img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Galeria</h1>
+        <button class="back-button" onclick="window.location.href = 'index.html';">Voltar para o início</button>
+        <div id="photosContainer"></div>
+    </div>
+
+    <script>
+        function getData(key) {
+            return JSON.parse(localStorage.getItem(key)) || [];
+        }
+
+        function displayPhotos() {
+            const photos = getData('photos');
+            const photosContainer = document.getElementById('photosContainer');
+            photosContainer.innerHTML = '';
+
+            photos.forEach((photo, index) => {
+                const div = document.createElement('div');
+                const img = document.createElement('img');
+                img.src = photo.src;
+                img.alt = photo.name;
+                div.appendChild(img);
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Excluir Foto';
+                deleteBtn.className = 'delete-btn';
+                deleteBtn.addEventListener('click', () => {
+                    deletePhoto(index);
+                });
+
+                div.appendChild(deleteBtn);
+                photosContainer.appendChild(div);
+            });
+        }
+
+        function deletePhoto(index) {
+            const photos = getData('photos');
+            photos.splice(index, 1);
+            localStorage.setItem('photos', JSON.stringify(photos));
+            displayPhotos();
+        }
+
+        displayPhotos();
+    </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+/* Geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2a1a69; /* Roxo escuro */
+    color: #fff;
+}
+
+header {
+    background-color: #5f2a8b; /* Roxo claro */
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: #f4b400; /* Cor de destaque no hover */
+}
+
+/* Formulários */
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="file"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #5f2a8b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4b1e6a;
+}
+
+/* Sessões */
+section {
+    margin: 20px;
+}
+
+/* Galeria de Fotos */
+#photosContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#photosContainer img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Lista de regras e apelidos */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+button.delete-btn {
+    background-color: red;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.delete-btn:hover {
+    background-color: darkred;
+}
+
+/* Mensagens */
+.message-box {
+    margin-bottom: 10px;
+    background: black;
+}
+
+/* Link do header */
+.header-link {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #5f2a8b;
+    border-radius: 5px;
+}
+
+.header-link:hover {
+    background-color: #4b1e6a;
+}
